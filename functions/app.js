@@ -3,12 +3,20 @@ const serverless = require("serverless-http");
 const app = express();
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.send("App is running..");
-});
+// const cors = require('cors');
+// router.use(cors({
+//     origin: ['*', 'https://mstfazmni.github.io']
+//   }));
+
+// // OPTIONS handler for preflight requests
+// router.options('*', cors());
+
+// router.get("/", (req, res) => {
+//     res.send("App is running..");
+// });
 
 
-app.post('/register', (req, res) => {
+router.post('/register', (req, res) => {
     const { firstName, lastName, userId, address, status } = req.body;
     
     let fee;
@@ -36,6 +44,8 @@ app.post('/register', (req, res) => {
     };
     
     res.json(response);
+
+    // res.send("Post running ...");
 });
 
 app.use("/.netlify/functions/app", router);

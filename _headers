@@ -1,0 +1,4 @@
+/register:
+  Access-Control-Allow-Origin: https://mstfazmni.github.io
+  Access-Control-Allow-Headers: Content-Type
+  Access-Control-Allow-Methods: POST
