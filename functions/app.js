@@ -8,7 +8,6 @@ router.use(cors({
     origin: ['*', 'https://mstfazmni.github.io']
   }));
 
-// OPTIONS handler for preflight requests
 router.options('*', cors());
 
 router.get("/", (req, res) => {
