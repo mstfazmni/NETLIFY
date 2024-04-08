@@ -3,17 +3,17 @@ const serverless = require("serverless-http");
 const app = express();
 const router = express.Router();
 
-// const cors = require('cors');
-// router.use(cors({
-//     origin: ['*', 'https://mstfazmni.github.io']
-//   }));
+const cors = require('cors');
+router.use(cors({
+    origin: ['*', 'https://mstfazmni.github.io']
+  }));
 
-// // OPTIONS handler for preflight requests
-// router.options('*', cors());
+// OPTIONS handler for preflight requests
+router.options('*', cors());
 
-// router.get("/", (req, res) => {
-//     res.send("App is running..");
-// });
+router.get("/", (req, res) => {
+    res.send("App is running..");
+});
 
 
 router.post('/register', (req, res) => {
@@ -45,7 +45,7 @@ router.post('/register', (req, res) => {
     
     res.json(response);
 
-    // res.send("Post running ...");
+    res.send("Post running ...");
 });
 
 app.use("/.netlify/functions/app", router);
